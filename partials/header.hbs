@@ -1,0 +1,163 @@
+{{!--
+This header template is shared across all the pages.
+--}}
+
+<header class="m-header {{#if background}}with-picture{{/if}} js-header">
+  <div class="m-mobile-topbar" data-aos="fade-down">
+    <button class="m-icon-button in-mobile-topbar js-open-menu" aria-label="Open menu">
+      <span class="icon-menu"></span>
+    </button>
+    {{#if @site.logo}}
+    <a href="{{@site.url}}" class="m-logo in-mobile-topbar">
+      <img src="{{@site.logo}}" alt="{{@site.title}}">
+    </a>
+    {{else}}
+    <a href="{{@site.url}}" class="m-site-name in-mobile-topbar">
+      {{@site.title}}
+    </a>
+    {{/if}}
+    <button class="m-icon-button in-mobile-topbar js-open-search" aria-label="Open search">
+      <span class="icon-search"></span>
+    </button>
+  </div>
+
+  <div class="m-menu js-menu">
+    <button class="m-icon-button outlined as-close-menu js-close-menu" aria-label="Close menu">
+      <span class="icon-close"></span>
+    </button>
+    <div class="m-menu__main" data-aos="fade-down">
+      <div class="l-wrapper">
+        <div class="m-nav">
+          <nav class="m-nav__left">
+            <ul role="submenu">
+              {{#if @site.logo}}
+              <li class="only-desktop" role="menuitem">
+                <a href="{{@site.url}}" class="m-logo">
+                  <img src="{{@site.logo}}" alt="{{@site.title}}">
+                </a>
+              </li>
+              {{else}}
+              <li class="only-desktop" role="menuitem">
+                <a href="{{@site.url}}" class="m-site-name in-desktop-menu">
+                  {{@site.title}}
+                </a>
+              </li>
+              {{/if}}
+              {{#if @site.navigation}}
+              {{navigation}}
+              {{/if}}
+              <li role="menuitem" class="js-submenu-option">
+                <button class="m-icon-button in-menu-main more js-toggle-submenu" aria-label="Toggle submenu">
+                  <span class="icon-more"></span>
+                </button>
+                <div class="m-submenu js-submenu">
+                  <div class="l-wrapper in-submenu">
+                    {{!-- Recents articles ටික ඩිසේබල් කරා
+                    <section class="m-recent-articles">
+                      <h3 class="m-submenu-title in-recent-articles">{{t "Recent articles"}}</h3>
+                      <div class="js-recent-articles">
+                        {{#get "posts" limit="4" order="published_at desc"}}
+                          {{#foreach posts}}
+                            <div>
+                              <a href="{{url}}" class="m-recent-article">
+                                <div class="m-recent-article__picture">
+                                  {{#if feature_image}}
+                                    <div class="lozad" data-background-image="{{img_url feature_image size="s"}}"></div>
+                                  {{else}}
+                                    <div class="no-image lozad" data-background-image="{{asset "images/no-image.png"}}"></div>
+                                  {{/if}}
+                                </div>
+                                <h3 class="m-recent-article__title js-recent-article-title" title="{{title}}">
+                                  {{title}}
+                                </h3>
+                                <span class="m-recent-article__date">{{date published_at timeago="true"}}</span>
+                              </a>
+                            </div>
+                            {{else}}
+                              <div class="m-not-found in-recent-articles">{{t "No recent articles found :("}}</div>
+                          {{/foreach}}
+                        {{/get}}
+                      </div>
+                    </section>
+ --}}
+                    {{!-- මුලින් කැටගරීස් තිබ්බ තැන. මේක දැන් තියෙන්නේ navigation.hbs එකේ --}}
+                    <section class="m-tags">
+                      <h3 class="m-submenu-title"><b>{{t "Categories"}}</b></h3>
+                      {{#get "tags" limit="30"}}
+
+                      {{#foreach tags}}
+                      <p class="cat-menu">
+              <li class="nav-{{slug}}{{#if current}} nav-current{{/if}}">
+                <a href="{{url}}" class="m-submenu-title">{{name}}</a>
+
+              </li>
+              </p>
+
+              {{else}}
+              <li class="m-not-found">{{t "No tags found :("}}</li>
+
+              {{/foreach}}
+
+              {{/get}}
+              </section>
+              <div><br /></div>
+
+              {{!--social icons --}}
+              <nav class="m-footer-social">
+                <a href="https://facebook.com/androidwedakarayo" target="_blank" rel="noopener" aria-label="Facebook">
+                  <span class="icon-facebook"></span>
+                </a>
+                <a href="https://twitter.com/androidwdlka" target="_blank" rel="noopener" aria-label="Twitter">
+                  <span class="icon-twitter"></span>
+                </a>
+                <a href="https://instagram.com/androidwedakarayo" target="_blank" rel="noopener" aria-label="Instagram">
+                  <span class="icon-instagram"></span>
+                </a>
+                <a href="https://www.youtube.com/channel/UCBYFBHWwOwXZlgRvwtmc1qw" target="_blank" rel="noopener"
+                  aria-label="Youtube">
+                  <span class="icon-youtube"></span>
+                </a>
+                <a href="https://github/thimiraonline" target="_blank" rel="noopener" aria-label="Instagram">
+                  <span class="icon-github"></span>
+                </a>
+                <a href="/rss" target="_blank" rel="noopener" aria-label="rss">
+                  <span class="icon-rss"></span>
+                </a>
+              </nav>
+              <div class="m-footer__content">
+                <p class="m-footer-copyright"></p>
+                <span>{{@site.title}} &copy; {{date format="YYYY"}}
+                </span>
+                </p>
+                <p>Made with
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" style="width:16px;overflow:visible">
+                    <path class="breathing"
+                      d="M24.85 10.126c2.018-4.783 6.628-8.125 11.99-8.125 7.223 0 12.425 6.179 13.079 13.543 0 0 .353 1.828-.424 5.119-1.058 4.482-3.545 8.464-6.898 11.503L24.85 48 7.402 32.165c-3.353-3.038-5.84-7.021-6.898-11.503-.777-3.291-.424-5.119-.424-5.119C.734 8.179 5.936 2 13.159 2c5.363 0 9.673 3.343 11.691 8.126z"
+                      fill="#a83f39"></path>
+                  </svg>
+
+                  by Gavnyx
+                </p>
+              </div>
+        </div>
+      </div>
+      </li>
+      </ul>
+      </nav>
+      <div class="m-nav__right">
+        <button class="m-icon-button in-menu-main js-open-search" aria-label="Open search">
+          <span class="icon-search"></span>
+        </button>
+
+        {{!-- <div class="m-toggle-darkmode js-tooltip" data-tippy-content="{{t "Toggle dark mode"}}"> 
+              <input type="checkbox" class="js-toggle-darkmode">
+              <div> --}}
+
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+</header>

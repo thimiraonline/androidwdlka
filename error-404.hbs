@@ -1,0 +1,77 @@
+{{!--
+This error template is used for all 404 errors, which might occur on your site.
+--}}
+
+{{!-- The tag below means: insert everything in this file
+into the {body} of the default.hbs template --}}
+{{!--
+{{!< default}}
+--}}
+
+{{!-- Special header.hbs partial to generate the <header> tag --}}
+{{!-- {{> header}} --}}
+
+{{!--
+<main class="l-fullscreen">
+  <section class="l-fullscreen__content" data-aos="fade-up" data-aos-delay="300">
+    <h1 class="m-404-title">404</h1>
+    <p class="m-404-subtitle">{{t "Page not found"}}</p>
+    <p class="m-404-text">
+      {{t "Unfortunately the page you were looking for could not be found."}}
+    </p>
+    <a href="{{@site.url}}" class="m-button outlined">{{t "Go to the home page"}}</a>
+  </section>
+</main> --}}
+
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>404 Page by Saleh Riaz</title>
+  <meta name="description" content="Saleh Riaz - UI/UX Engineer. Designer. Computer Scientist">
+  <meta name="keywords"
+    content="ui engineer, ux, saleh, riaz, qureshi, website, softwares, salehriaz, salehriazq, computer scientist, design, visual design, saleh riaz qureshi">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/assets/css/404.css">
+
+  
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+</head>
+
+<body class="bg-purple" data-gr-c-s-loaded="true">
+
+  <div class="stars">
+
+    <div class="central-body">
+      <img class="image-404" src="/assets/images/404.svg" width="300px">
+      <a href="{{@site.url}}" class="btn-go-home">GO BACK HOME</a>
+    </div>
+    <div class="objects">
+      <img class="object_rocket" src="/assets/images/rocket.svg" width="40px">
+      <div class="earth-moon">
+        <img class="object_earth" src="/assets/images/earth.svg" width="100px">
+        <img class="object_moon" src="/assets/images/moon.svg" width="80px">
+      </div>
+      <div class="box_astronaut">
+        <img class="object_astronaut" src="/assets/images/astronaut.svg" width="140px">
+      </div>
+    </div>
+    <div class="glowing_stars">
+      <div class="star"></div>
+      <div class="star"></div>
+      <div class="star"></div>
+      <div class="star"></div>
+      <div class="star"></div>
+
+    </div>
+
+  </div>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+{{!--
+This navigation template is shared across all the pages.
+Also it includes the big submenu.
+--}}
+{{!-- }}
+{{#get "tags" limit="10"}}
+<ul>
+  {{#foreach tags}}
+  <li>
+    <a href="{{url}}">{{name}}</a>
+  </li>
+  {{else}}
+  <li class="m-not-found">{{t "No tags found :("}}</li>
+  {{/foreach}}
+</ul>
+{{/get}}
+--}}
+
+<li class="nav-{{slug}}{{#if current}} nav-current{{/if}}">
+  <a href="{{@site.url}}">Home</a>
+</li>
+<li class="nav-{{slug}}{{#if current}} nav-current{{/if}}">
+  <a href="{{@site.url}}/about-us">About us</a>
+</li>
+<li class="nav-{{slug}}{{#if current}} nav-current{{/if}}">
+  <a href="{{@site.url}}/privacy-policy">Privacy Policy</a>
+</li>
+<li class="nav-{{slug}}{{#if current}} nav-current{{/if}}">
+  <a href="{{@site.url}}/contact-us">Contact us</a>
+</li>
+
+
+{{!-- 
+{{#foreach navigation}}
+{{#if tags}}
+sf
+{{else}}
+<li class="nav-{{slug}}{{#if current}} nav-current{{/if}}">
+  <a href="{{url absolute="true"}}">{{label}}</a>
+</li>
+{{/if}}
+{{/foreach}}
+--}}
